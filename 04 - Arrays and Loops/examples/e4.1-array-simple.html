@@ -6,11 +6,34 @@
 <script type="text/Javascript">
 
     // declaring arrays
+    const myArray = [20,11,13];
+    const myArray1 = ["a","b","c"];
+    const myArray2 = new Array(3.14, "water", true);
+    console.log(myArray);
+    console.log(myArray1);
+    console.log(myArray2);
 
     // access values/attributes of an array by index
+    const myArray3 = new Array("Lions","Tigers","Bears");
+    myArray3.sort();
+    document.write(`all values: ${myArray4}<br>`);
+    document.write(`value at index 0: ${myArray3[0]}<br>`);
+    document.write(`value at index 1: ${myArray3[1]}<br>`);
+    document.write(`value at index 2: ${myArray3[2]}<br>`);
+    document.write(`array length: ${myArray3.length}<br><br>`);
 
     // loop through or over array values and write to console
+    for (let i=0; i < myArray3.length; i++)
+    {
+        document.write(`value at index ${i} = ${myArray3[i]}<br>`);
+    }
 
+    let i = 0;
+    while (i < myArray3.length)
+    {
+        document.write(`value at index ${i} = ${myArray3[i]}<br>`);
+        i++;
+    }
 </script>
 </body>
 </html>
