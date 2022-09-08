@@ -25,10 +25,20 @@
     */
 
     // input
+    let input = prompt("Enter numbers (separate by commas): ");
+    const inputArray = input.split(",");
 
     // calculate
+    let sum = 0;
+    for (let i=0; i<inputArray.length; i++)
+    {
+        sum = sum + Number(inputArray[i]);
+    }
 
     // output
+    document.getElementById('input').innerHTML = input; 
+    document.getElementById('count').innerHTML = inputArray.length;
+    document.getElementById('sum').innerHTML = sum;
 
 </script>
 </body>
