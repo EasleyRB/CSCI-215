@@ -49,12 +49,25 @@
     */
 
     // input
-    const myArray = prompt("Enter list of cat types separated by a comma: ")
+    let catNames = prompt("Enter list of cat types separated by a comma: ");
+    catNames.replace(" ","");
 
     // compute
+    const catNameArray = catNames.split(",");
+    for (let i = 0; i < catNameArray.length; i++)
+    {
+        let stringOutput = `${i} - ${catNameArray[i]}<br/>`;
+        document.getElementById('listOfNames').innerHTML += stringOutput;
+    }
 
     // output into elements in the UI
-
+    document.getElementById('names') = catNames;
+    catNameArray.sort();
+    for (let i = 0; i < catNameArray.length; i++)
+    {
+        let sortOutput = `${i} - ${catNameArray[i]}<br/>`;
+        document.getElementById('listOfNamesSorted').innerHTML += sortOutput;
+    }
 </script>
 </body>
 </html>
