@@ -28,8 +28,31 @@
     */
 
     // input
+    let fruit = prompt("Separate fruit and count by commas. Separate individual fruits by semicolons: ", "Apples,2;Bananas,5;Cherries,9");
+    const fruitArray = fruit.split(";");
+    let totalCount = 0
 
     // calculations
+    //fruitArray: product, count
+    for (let i = 0; i<fruitArray.length; i++)
+    {
+        //product = index 0, count = index 1
+        const array1 = fruitArray[i].split(",");
+
+        totalCount += Number(array1[1]);
+
+        document.write(`${array1[0]}: `);
+        for (j = 0; j<array1[1]; j++)
+        {
+            //display first letter count number of times
+            document.write(`${array1[0].substring(0,1).toLowerCase()}`);
+
+            //totalCount ++;
+        }
+        document.write(`<br/>`);     
+    }
+    document.write(`-------------<br/>`);
+    document.write(`Total Items: ${totalCount}`)
 
     // output 
 

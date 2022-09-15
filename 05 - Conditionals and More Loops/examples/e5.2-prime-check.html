@@ -26,10 +26,42 @@
     */
 
     // input
+    let input = prompt("Enter a possible prime number: ");
+    let possiblePrime = Number(input);
+    let isPrime = true;
+    let divisors = []
 
     // calculations
+    if (possiblePrime > 1)
+    {
+        for (let i=2; i<possiblePrime; i++)
+        {
+            let remainder = possiblePrime%i;
+            if (remainder == 0)
+            {
+                isPrime = false;
+                divisors.push(i);
+            }
+
+        }
+
+    }
+    else
+    {
+        isPrime = false;
+    }
 
     // output
+    if (isPrime == true)
+    {
+        document.write(`${input} is a prime number :)`);
+    }
+    else
+    {
+        document.write(`${input} is not a prime number :( <br/>`);
+        document.write(`${input} is divisible by ${divisors}`);
+    }
+    
  
 </script>
 </body>
