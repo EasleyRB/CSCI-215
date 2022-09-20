@@ -27,10 +27,38 @@
     */
 
     // input
+    let input = prompt("Input series of numbers separated by a comma: ");
+    const numberArray = input.split(",");
+    let sum = 0;
+    let acc = 0;
 
     // calculations
+    for (let i = 0; i<numberArray.length; i++)
+    {
+        sum += Number(numberArray[i]);
+        acc ++;
+    }
+
+    let ave = parseInt(sum / acc);
+    let isFound = false;
+    for (let j = 0; j<numberArray.length; j++)
+    {
+        if (numberArray[j] == ave)
+        {
+            isFound = true;
+            break;
+        }
+    }
 
     // output
+    if (isFound == true)
+    {
+        document.write(`The average value ${ave} IS included in the list of values ${numberArray}.`);
+    }
+    else
+    {
+        document.write(`The average value ${ave} is not NOT included in the list of values ${numberArray}.`)
+    }
 
 </script>
 </body>
