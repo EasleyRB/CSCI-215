@@ -158,7 +158,7 @@
         // get value from select list
         tacoCount = document.getElementById('tacoCountChoose').value;
         // calc order total
-        tacoTotal = tacoCount * TACO_PRICE;
+        tacoTotal = tacoCount * TACO_COST;
         // update UI
         document.getElementById('tacoCount').innerHTML = tacoCount;
         document.getElementById('tacoTotal').innerHTML = tacoTotal.toFixed(2);
@@ -173,7 +173,7 @@
         // get value from select list
         burritoCount = document.getElementById('burritoCountChoose').value;
         // calc order total
-        burritoTotal = burritoCount * BURRITO_PRICE;
+        burritoTotal = burritoCount * BURRITO_COST;
         // update UI
         document.getElementById('burritoCount').innerHTML = burritoCount;
         document.getElementById('burritoTotal').innerHTML = burritoTotal.toFixed(2);
@@ -184,7 +184,7 @@
     /**
      * Calculate totals
      */
-    function calcGrandTotal() {
+    function calcGrandTotal(tacoTotal, burritoTotal) {
         subTotal = tacoTotal + burritoTotal;
         taxTotal = subTotal * TAX;
         grandTotal = subTotal + taxTotal;
