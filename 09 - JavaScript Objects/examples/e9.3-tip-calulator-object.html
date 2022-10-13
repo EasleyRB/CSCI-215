@@ -27,14 +27,36 @@
 <script type="text/javascript">
 
     const tipCalculatorModel = {
-        "amount":  null
+        "amount":  null,
+        tipPercent: '',
+        subTotal: function() {
+            
+        },
+        taxAmount: function() {
+            
+        },
+        grandTotal: function() {
+
+        }
+
     };
 
     /**
      *  Create default values for your model
      */
     function init() {
-        tipCalculatorModel.amount = 0.00;
+        tipCalculatorModel.amount = 100.00;
+        tipCalculatorModel.tipPercent = 0.10;
+        tipCalculatorModel.tipAmount.toFixed(2) = tipCalculatorModel.amount * tipCalculatorModel.tipPercent;
+        tipCalculatorModel.grandTotal.toFixed(2) = tipCalculatorModel.amount + tipCalculatorModel.tipAmount;
+
+        let results = `
+            Amount: ${tipCalculatorModel.amount}<br/>
+            Tip Percent: ${tipCalculatorModel.tipPercent}<br/>
+            Tip Amount: ${tipCalculatorModel.tipAmount}<br/>
+            Grand Total: ${tipCalculatorModel.grandTotal}
+        `;
+        document.getElementById('results').innerHTML = results;
     }
 
 </script>
