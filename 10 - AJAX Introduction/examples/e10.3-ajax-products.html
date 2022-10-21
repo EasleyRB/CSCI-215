@@ -34,7 +34,25 @@
     </div>
 </div>
 <script>
-    //TODO
+    // create function for the onclick inside the container div
+
+    function loadRemoteContent(itemId) {
+        // create the constant for the ajax request
+        const ajaxRequest = new XMLHttpRequest();
+
+        // callback
+        ajaxRequest.onload = function() {
+
+            // this is where the response comes back
+            document.getElementById('additionalInfo').innerHTML = this.responseText;
+        }
+
+        // define connection to get information
+        ajaxRequest.open("GET", "https://easleyrb.stu.cofc.edu/CSCI215/Fall2022/10/e10.3-products.php?id="+itemId);
+
+        // send request and callback handles response
+        ajaxRequest.send();
+    }
 
 </script>
 </body>
