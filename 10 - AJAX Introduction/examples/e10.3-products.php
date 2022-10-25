@@ -50,8 +50,19 @@ if ($_GET['id']) {
     $id = $_GET['id'];
     foreach ($inventory as $item) {
         if ($id === $item['id']) {
-            $result = $item['description'];
-            break;
+            if($_GET['name']){
+                $result = $item['name']
+                break;
+            } else if ($_GET['inventory']){
+                $result = $item['inventory']
+                break;
+            } else if ($_GET['description']){
+                $result = $item['description']
+                break;
+            } else if ($_GET['file']){
+                $result = $item['file']
+                break;
+            }
         }
     }
 } else {
