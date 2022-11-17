@@ -92,15 +92,22 @@
                 if (this.readyState == 4 && this.status == 200) {
                     // convert the string response (in JSON format) into a JavaScript object
                     // TODO
+                    const guessResponse = JSON.parse(this.responseText);
 
                     // add to history
                     // TODO
+                    recordHistory(guessResponse);
 
                     // handle success/failure responses (right/wrong guesses)
                     // TODO
+                    if(guessResponse.gameOver === true){
+                        handleSuccess(guessResponse);
+                    }else{
+                        handleFailure(guessResponse);
+                    }
                 }
             };
-            ajaxRequest.open("GET", "https://tcmoorer.people.cofc.edu/CSCI215/Spring2022/11/e11.2-ajax-guess.php?target=" + targetNumber + "&guess=" + userGuess, true);
+            ajaxRequest.open("GET", "https://easleyrb.stu.cofc.edu/CSCI215/Fall2022//11/e11.2-ajax-guess.php?target=" + targetNumber + "&guess=" + userGuess, true);
             ajaxRequest.send();
         }
     }
