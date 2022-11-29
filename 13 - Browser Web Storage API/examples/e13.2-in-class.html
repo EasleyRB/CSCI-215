@@ -20,10 +20,82 @@
 
 -->
 <html>
-<head></head>
-<body onload="">
-<script>
+  <head></head>
+  <body onload="initStorage()">
 
-</script>
-</body>
+    <div onclick="addItem()">Add to Storage</div>
+    <div onclick="incrementQty()">(+) Increment</div>
+    <div onclick="decrementQty()">(-) Decrement</div>
+    <br>
+    <div id="total"></div>
+
+    <script>
+      const productList = [];
+
+      function initStorage() {
+                let productsJSON = JSON.stringify(productList);
+                sessionStorage.setItem("products", productsJSON);
+            }
+
+      function addItem() {
+                // 1. get items from storage and convert to object array
+                let products = JSON.parse(sessionStorage.getItem("products"));
+
+                // 2. add item to array
+                let product = { id: 21042 , name: "Something", unitCost: 1.99, quantity: 1 };
+                products.push(product);
+
+                // 3. save updates in storage
+                let productsJSON = JSON.stringify(products);
+                sessionStorage.setItem("products", productsJSON);
+
+                // update total
+                calcTotal();
+      }
+
+      function incrementQty() {
+          // get item from storage and increment qty by 1
+          let products = JSON.parse(sessionStorage.getItem("products"));
+          for (let i=0; i<products.length; i++) {
+              products[i].quantity += 1;
+          }
+          // save back into storage
+          let productsJSON = JSON.stringify(products);
+          sessionStorage.setItem("products", productsJSON);
+          calcTotal();
+      }
+
+      function decrementQty() {
+          // get item from storage and decrement qty by 1
+          let products = JSON.parse(sessionStorage.getItem("products"));
+          for (let i=0; i<products.length; i++) {
+              products[i].quantity -= 1;
+          }
+          // save back into storage
+          let productsJSON = JSON.stringify(products);
+          sessionStorage.setItem("products", productsJSON);
+          calcTotal();
+      }
+      
+      function calcTotal() {
+          // get items from storage
+          let products = JSON.parse(sessionStorage.getItem("products"));
+          let totalDiv = document.getElementById("total");
+          totalDiv.innerHTML = "";
+          let totalDivStr = "";
+          // loop and calc item total (price * qty)
+          for (let i=0; i<products.length; i++) {
+              // update div 'total' with
+              totalDivStr += `<div>
+                  ${products[i].id}: Name: ${products[i].name},
+                  Price: ${products[i].unitCost},
+                  Qty ${products[i].quantity}, Total: ${products[i].unitCost * products[i].quantity}
+              </div>`;
+          }
+
+          totalDiv.innerHTML = totalDivStr;
+      }
+
+    </script>
+  </body>
 </html>
